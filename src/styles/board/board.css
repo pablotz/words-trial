@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-right: -100px;
+    margin-right: -180px;
 }
 
 .letter {
@@ -26,6 +26,27 @@
     margin: 10px;
     font-size: 50px;
     color: rgb(50, 50, 50);
+    font-family: 'Bebas Neue', cursive;
+
+    box-shadow: -1px 4px 83px -18px rgba(0,0,0,0.55);
+    -webkit-box-shadow: -1px 4px 83px -18px rgba(0,0,0,0.55);
+    -moz-box-shadow: -1px 4px 83px -18px rgba(0,0,0,0.55);
+
+    transition: 5s;
+}
+
+.letter-dark {
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    background-color: #a1a1a14c;
+    border-radius: 10px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 75px;
+    margin: 10px;
+    font-size: 50px;
+    color: rgb(255, 255, 255);
     font-family: 'Bebas Neue', cursive;
 
     box-shadow: -1px 4px 83px -18px rgba(0,0,0,0.55);
@@ -59,9 +80,21 @@
 .check-button:hover {
     background-color: #62b168f5;
 }
+.back-button {
+    width: 75px;
+    height: 75px;
+    border-radius: 30px;
+    background-color: rgb(255,135,46);
+    border-style: none;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.back-button:hover {
+    background-color: rgba(255, 137, 46, 0.726);
+}
 
 .refresh-img {
     width: 50px;
     height: 50px;
 }
-

@@ -1,16 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import check from '../assets/img/check.png';
+import back from '../assets/img/backspace.png';
 import '../styles/board/board.css';
 import correct_audio from '../assets/audio/correct.mp3'
 import key_audio from '../assets/audio/key.wav'
-import { setError, setCorrect, setAnswered, setScore } from '../store/slices/App';
+import { setError, setCorrect, setAnswered, setScore, setLetters, popLetters } from '../store/slices/App';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Board = ({ generated, genLetters }) => {
 
-  const [letters, setLetters] = useState([]);
   const dispatch = useDispatch();
-  const { allAnswered, isRunning } = useSelector(state => state.AppSlice)
+  const { allAnswered, isRunning, letters ,theme } = useSelector(state => state.AppSlice)
 
   const time = new Date();
   time.setSeconds(time.getSeconds() + 100);
@@ -23,24 +23,27 @@ const Board = ({ generated, genLetters }) => {
     if(e.key === "Enter") {
       sendWord();
 
-    } else if (e.key === "Backspace" && isRunning) {
+    } else if (e.key === "Backspace") {
+      popLetter()
       
-      if(letters[letters.length - 1]) {
-        let arrL = letters.slice()
-        arrL.pop()
-        setLetters(arrL)
-      }
     } else if (e.key === "Shift"){ 
       genLetters()
     } else if (isRunning){
+      setWord(e.key)
+    }
+  }
 
-      if(letters.length <= 5) {
-        let arrL = letters.slice();
-        if(generated.indexOf(e.key.toUpperCase()) > -1){
-          arrL.push(e.key)
-          setLetters(arrL)
-          key_keyboard.play()
-        }
+  const popLetter = () => {
+    if(isRunning) dispatch(popLetters())
+  }
+
+  const setWord = (word) => {
+    if(letters.length <= 5) {
+      let arrL = letters.slice();
+      if(generated.indexOf(word.toUpperCase()) > -1){
+        arrL.push(word)
+        dispatch(setLetters(arrL))
+        key_keyboard.play()
       }
     }
   }
@@ -62,7 +65,7 @@ const Board = ({ generated, genLetters }) => {
             dispatch(
               setScore(genScore(letters.length))
             )
-            setLetters([])
+            dispatch(setLetters([]))
             correct.play()
           }
         
@@ -99,29 +102,39 @@ const Board = ({ generated, genLetters }) => {
  
   })
 
+  useEffect(() => {
+    console.log(letters)
+    if(!isRunning) dispatch(setLetters([]))
+  }, [isRunning])
+
 
   return (
     <>
       <div className='board'>
         {
           <>
-            <div className="letter">
+            <div className={theme === "light" ? "letter" : "letter-dark"}>
               {letters[0]}
             </div>
-            <div className="letter">
+            <div className={theme === "light" ? "letter" : "letter-dark"}>
               {letters[1]}
             </div>
-            <div className="letter">
+            <div className={theme === "light" ? "letter" : "letter-dark"}>
               {letters[2]}  
             </div>
-            <div className="letter">
+            <div className={theme === "light" ? "letter" : "letter-dark"}>
               {letters[3]}  
             </div>
-            <div className="letter">
+            <div className={theme === "light" ? "letter" : "letter-dark"}>
               {letters[4]}  
             </div>
-            <div className="letter">
+            <div className={theme === "light" ? "letter" : "letter-dark"}>
               {letters[5]}    
+            </div>
+            <div className='check-container'> 
+              <button className='back-button' onClick={() => popLetter()}>
+                <img className='refresh-img' src={back} />
+              </button>
             </div>
             <div className='check-container'> 
               <button className='check-button' onClick={() => sendWord()}>
