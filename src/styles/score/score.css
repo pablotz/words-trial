@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,700;0,800;1,600;1,700;1,800&display=swap');
+
+.score {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    font-size: 30px;
+    font-family: 'Merriweather Sans', sans-serif;
+}

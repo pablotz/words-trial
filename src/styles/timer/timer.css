@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.start-button {
+    background-color: rgb(120,199,124);
+    border-style: none;
+    margin: 20px;
+    border-radius: 60px;
+    padding: 10px 50px;
+    font-size: 35px;
+    color: white;
+    cursor: pointer;
+    font-family: 'Bebas Neue', cursive;
+    transition: 0.3s;
+}
+
+
+.start-button:hover {
+    background-color: rgba(120, 199, 124, 0.475);
+    padding: 7px 45px;
+}
+
+.start-button:active {
+    padding: 20px 70px;
+}

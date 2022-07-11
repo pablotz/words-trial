@@ -1,0 +1,15 @@
+li {
+    list-style-type: none;
+}
+
+.container-video {
+    width: 100px;
+    height: 150px;
+    padding: 50px;
+}
+
+.video {
+    height: 150px;
+    padding: 20px;
+    transform: scale(1.3);
+}

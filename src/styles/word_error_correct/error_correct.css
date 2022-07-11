@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,700;0,800;1,600;1,700;1,800&display=swap');
+
+.word-error.open {
+    position: absolute;
+    top: 12%;
+    padding: 5px 100px;
+    font-size: 50px;
+    background-color: rgba(213, 101, 101, 0.874);
+    border-radius: 30px;
+    color: white;
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+.word-error.out {
+    position: absolute;
+    top: 12%;
+    padding: 5px 100px;
+    font-size: 50px;
+    background-color: rgba(213, 101, 101, 0.874);
+    border-radius: 30px;
+    color: white;
+    font-family: 'Merriweather Sans', sans-serif;
+
+    opacity:0;
+    transition: width 0.1s 0.1s, height 0.1s 0.1s, opacity 0.1s;
+}
+
+.word-correct.open {
+    position: absolute;
+    top: 12%;
+    padding: 5px 100px;
+    font-size: 50px;
+    background-color: #72c577f5;
+    border-radius: 30px;
+    color: white;
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+.word-correct.out {
+    position: absolute;
+    top: 12%;
+    padding: 5px 100px;
+    font-size: 50px;
+    background-color: #72c577f5;
+    border-radius: 30px;
+    color: white;
+    font-family: 'Merriweather Sans', sans-serif;
+
+    opacity:0;
+    transition: width 0.1s 0.1s, height 0.1s 0.1s, opacity 0.1s;
+}
+
+.finish {
+    position: absolute;
+    top: 12%;
+    padding: 5px 100px;
+    font-size: 50px;
+    background-color: #F8E098;
+    border-radius: 30px;
+    color: white;
+    font-family: 'Merriweather Sans', sans-serif;
+
+    opacity:1;
+    transition: width 0.1s 0.1s, height 0.1s 0.1s, opacity 0.1s;
+}
