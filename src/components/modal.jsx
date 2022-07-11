@@ -7,6 +7,7 @@ const Modal = () => {
     <div>
         <h2>How to play</h2>
         <p>Words trial is a game where you will test your capacity making words in a time limit</p>
+        <p>Press <strong>START</strong> to play new game</p>
         <div className='cointainer-video'>
             <video className='video' src={video} autoplay="autoplay" loop />
         </div>
