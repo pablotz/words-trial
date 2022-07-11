@@ -1,0 +1,43 @@
+.instructions-container {
+    position: absolute;
+    bottom: 5%;
+    left: 2%;
+}
+
+
+.intructions-button {
+    background-color: rgb(166, 198, 233);
+    border-style: none;
+    border-radius: 60px;
+    padding: 10px 50px;
+    font-size: 35px;
+    color: white;
+    cursor: pointer;
+    font-family: 'Bebas Neue', cursive;
+    transition: 0.3s;
+}
+
+
+.intructions-button:hover {
+    background-color: rgba(166, 198, 233, 0.482);
+}
+
+.intructions-button:active {
+    padding: 20px 70px;
+}
+
+.github-container {
+    position: absolute;
+    bottom: 5%;
+    right: 2%;
+}
+
+.github-img {
+    width: 60px;
+    height: 60px;
+    transition: 0.3s;
+}
+
+.github-img:hover {
+    opacity: 0.5;
+}

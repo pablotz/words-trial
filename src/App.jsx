@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react'
 import Board from './components/board'
 import Generated from './components/generated'
 import './styles/main/app.css'
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
 
 //Redux
 import store from './store/index'
@@ -12,20 +10,12 @@ import WordOutput from './components/wordOutput'
 import Score from './components/score'
 import Particles from './components/particles'
 import Timer from './components/timer'
-import Modal from './components/modal'
+import DarkMode from './components/darkMode'
+import BottomButtons from './components/bottomButtons'
 
 function App() {
 
   const [generated, setGenerated] = useState([]);
-
-  const MySwal = withReactContent(Swal)
-
-  const launchModal = () => {
-    MySwal.fire({
-      title: <h1>Words Trial</h1>,
-      html: <Modal />,
-    })
-  }
 
   let genLetters = () => {
     var result = '';
@@ -62,16 +52,13 @@ function App() {
       }
     })
 
-    console.log(countVowels)
     if(countVowels < 2) {
       let ramdomVowel = vowels[randomIntFromInterval(0, 4)]
       let randomIndex = randomIntFromInterval(1, notVowelIndex.length)
       while(result.find((letter) => letter === ramdomVowel)){
         ramdomVowel = vowels[randomIntFromInterval(0, 4)]
       } 
-      console.log(randomIndex)
       result[randomIndex - 1] = ramdomVowel;
-      console.log(result)
     }
 
     setGenerated(result)
@@ -88,6 +75,9 @@ function App() {
     <Provider store={store}>
       <div className='container'>
         <Particles />
+        <div className="dark-mode-container">
+          <DarkMode />
+        </div>
         <div className="app">
           <Score />
         </div>
@@ -103,8 +93,8 @@ function App() {
         <div className="app">
           <Timer />
         </div>
-        <div className='instructions-modal'>
-          <button className='intructions-button' onClick={launchModal}>Instructions</button>
+        <div>
+          <BottomButtons />
         </div>
       </div>
     </Provider>

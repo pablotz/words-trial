@@ -41,7 +41,7 @@ const Timer = () => {
    
 
     useEffect(() => {
-        time.setSeconds(time.getSeconds() + 60);
+        time.setSeconds(time.getSeconds() + 120);
         restart(time)
         pause()
     }, [])
